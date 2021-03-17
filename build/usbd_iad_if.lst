@@ -1,0 +1,1237 @@
+ARM GAS  /tmp/ccJKIFMf.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"usbd_iad_if.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.IAD_DeInit_FS,"ax",%progbits
+  17              		.align	1
+  18              		.arch armv7e-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv5-d16
+  24              	IAD_DeInit_FS:
+  25              	.LFB146:
+  26              		.file 1 "Src/usbd_iad_if.c"
+   1:Src/usbd_iad_if.c **** /* USER CODE BEGIN Header */
+   2:Src/usbd_iad_if.c **** /**
+   3:Src/usbd_iad_if.c ****   ******************************************************************************
+   4:Src/usbd_iad_if.c ****   * @file           : usbd_cdc_if.c
+   5:Src/usbd_iad_if.c ****   * @version        : v1.0_Cube
+   6:Src/usbd_iad_if.c ****   * @brief          : Usb device for Virtual Com Port.
+   7:Src/usbd_iad_if.c ****   ******************************************************************************
+   8:Src/usbd_iad_if.c ****   * @attention
+   9:Src/usbd_iad_if.c ****   *
+  10:Src/usbd_iad_if.c ****   * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
+  11:Src/usbd_iad_if.c ****   * All rights reserved.</center></h2>
+  12:Src/usbd_iad_if.c ****   *
+  13:Src/usbd_iad_if.c ****   * This software component is licensed by ST under Ultimate Liberty license
+  14:Src/usbd_iad_if.c ****   * SLA0044, the "License"; You may not use this file except in compliance with
+  15:Src/usbd_iad_if.c ****   * the License. You may obtain a copy of the License at:
+  16:Src/usbd_iad_if.c ****   *                             www.st.com/SLA0044
+  17:Src/usbd_iad_if.c ****   *
+  18:Src/usbd_iad_if.c ****   ******************************************************************************
+  19:Src/usbd_iad_if.c ****   */
+  20:Src/usbd_iad_if.c **** /* USER CODE END Header */
+  21:Src/usbd_iad_if.c **** 
+  22:Src/usbd_iad_if.c **** /* Includes ------------------------------------------------------------------*/
+  23:Src/usbd_iad_if.c **** #include "usbd_iad_if.h"
+  24:Src/usbd_iad_if.c **** 
+  25:Src/usbd_iad_if.c **** /* USER CODE BEGIN INCLUDE */
+  26:Src/usbd_iad_if.c **** 
+  27:Src/usbd_iad_if.c **** /* USER CODE END INCLUDE */
+  28:Src/usbd_iad_if.c **** 
+  29:Src/usbd_iad_if.c **** /* Private typedef -----------------------------------------------------------*/
+  30:Src/usbd_iad_if.c **** /* Private define ------------------------------------------------------------*/
+  31:Src/usbd_iad_if.c **** /* Private macro -------------------------------------------------------------*/
+  32:Src/usbd_iad_if.c **** 
+ARM GAS  /tmp/ccJKIFMf.s 			page 2
+
+
+  33:Src/usbd_iad_if.c **** /* USER CODE BEGIN PV */
+  34:Src/usbd_iad_if.c **** /* Private variables ---------------------------------------------------------*/
+  35:Src/usbd_iad_if.c **** 
+  36:Src/usbd_iad_if.c **** /* USER CODE END PV */
+  37:Src/usbd_iad_if.c **** 
+  38:Src/usbd_iad_if.c **** /** @addtogroup STM32_USB_OTG_DEVICE_LIBRARY
+  39:Src/usbd_iad_if.c ****   * @brief Usb device library.
+  40:Src/usbd_iad_if.c ****   * @{
+  41:Src/usbd_iad_if.c ****   */
+  42:Src/usbd_iad_if.c **** 
+  43:Src/usbd_iad_if.c **** /** @addtogroup USBD_CDC_IF
+  44:Src/usbd_iad_if.c ****   * @{
+  45:Src/usbd_iad_if.c ****   */
+  46:Src/usbd_iad_if.c **** 
+  47:Src/usbd_iad_if.c **** /** @defgroup USBD_CDC_IF_Private_TypesDefinitions USBD_CDC_IF_Private_TypesDefinitions
+  48:Src/usbd_iad_if.c ****   * @brief Private types.
+  49:Src/usbd_iad_if.c ****   * @{
+  50:Src/usbd_iad_if.c ****   */
+  51:Src/usbd_iad_if.c **** 
+  52:Src/usbd_iad_if.c **** /* USER CODE BEGIN PRIVATE_TYPES */
+  53:Src/usbd_iad_if.c **** 
+  54:Src/usbd_iad_if.c **** /* USER CODE END PRIVATE_TYPES */
+  55:Src/usbd_iad_if.c **** 
+  56:Src/usbd_iad_if.c **** /**
+  57:Src/usbd_iad_if.c ****   * @}
+  58:Src/usbd_iad_if.c ****   */
+  59:Src/usbd_iad_if.c **** 
+  60:Src/usbd_iad_if.c **** /** @defgroup USBD_CDC_IF_Private_Defines USBD_CDC_IF_Private_Defines
+  61:Src/usbd_iad_if.c ****   * @brief Private defines.
+  62:Src/usbd_iad_if.c ****   * @{
+  63:Src/usbd_iad_if.c ****   */
+  64:Src/usbd_iad_if.c **** 
+  65:Src/usbd_iad_if.c **** /* USER CODE BEGIN PRIVATE_DEFINES */
+  66:Src/usbd_iad_if.c **** /* Define size for the receive and transmit buffer over CDC */
+  67:Src/usbd_iad_if.c **** /* It's up to user to redefine and/or remove those define */
+  68:Src/usbd_iad_if.c **** #define APP_RX_DATA_SIZE  2048
+  69:Src/usbd_iad_if.c **** #define APP_TX_DATA_SIZE  2048
+  70:Src/usbd_iad_if.c **** /* USER CODE END PRIVATE_DEFINES */
+  71:Src/usbd_iad_if.c **** 
+  72:Src/usbd_iad_if.c **** /**
+  73:Src/usbd_iad_if.c ****   * @}
+  74:Src/usbd_iad_if.c ****   */
+  75:Src/usbd_iad_if.c **** 
+  76:Src/usbd_iad_if.c **** /** @defgroup USBD_CDC_IF_Private_Macros USBD_CDC_IF_Private_Macros
+  77:Src/usbd_iad_if.c ****   * @brief Private macros.
+  78:Src/usbd_iad_if.c ****   * @{
+  79:Src/usbd_iad_if.c ****   */
+  80:Src/usbd_iad_if.c **** 
+  81:Src/usbd_iad_if.c **** /* USER CODE BEGIN PRIVATE_MACRO */
+  82:Src/usbd_iad_if.c **** 
+  83:Src/usbd_iad_if.c **** /* USER CODE END PRIVATE_MACRO */
+  84:Src/usbd_iad_if.c **** 
+  85:Src/usbd_iad_if.c **** /**
+  86:Src/usbd_iad_if.c ****   * @}
+  87:Src/usbd_iad_if.c ****   */
+  88:Src/usbd_iad_if.c **** 
+  89:Src/usbd_iad_if.c **** /** @defgroup USBD_CDC_IF_Private_Variables USBD_CDC_IF_Private_Variables
+ARM GAS  /tmp/ccJKIFMf.s 			page 3
+
+
+  90:Src/usbd_iad_if.c ****   * @brief Private variables.
+  91:Src/usbd_iad_if.c ****   * @{
+  92:Src/usbd_iad_if.c ****   */
+  93:Src/usbd_iad_if.c **** /* Create buffer for reception and transmission           */
+  94:Src/usbd_iad_if.c **** /* It's up to user to redefine and/or remove those define */
+  95:Src/usbd_iad_if.c **** /* Received Data over USB are stored in this buffer       */
+  96:Src/usbd_iad_if.c **** uint8_t UserRxBufferFS1[APP_RX_DATA_SIZE];
+  97:Src/usbd_iad_if.c **** uint8_t UserRxBufferFS2[APP_RX_DATA_SIZE];
+  98:Src/usbd_iad_if.c **** 
+  99:Src/usbd_iad_if.c **** /* Send Data over USB IAD are stored in this buffer       */
+ 100:Src/usbd_iad_if.c **** uint8_t UserTxBufferFS1[APP_TX_DATA_SIZE];
+ 101:Src/usbd_iad_if.c **** uint8_t UserTxBufferFS2[APP_TX_DATA_SIZE];
+ 102:Src/usbd_iad_if.c **** 
+ 103:Src/usbd_iad_if.c **** /* USER CODE BEGIN PRIVATE_VARIABLES */
+ 104:Src/usbd_iad_if.c **** uint32_t UserRxLenFS1;
+ 105:Src/usbd_iad_if.c **** uint32_t UserRxLenFS2;
+ 106:Src/usbd_iad_if.c **** /* USER CODE END PRIVATE_VARIABLES */
+ 107:Src/usbd_iad_if.c **** 
+ 108:Src/usbd_iad_if.c **** /**
+ 109:Src/usbd_iad_if.c ****   * @}
+ 110:Src/usbd_iad_if.c ****   */
+ 111:Src/usbd_iad_if.c **** 
+ 112:Src/usbd_iad_if.c **** /** @defgroup USBD_CDC_IF_Exported_Variables USBD_CDC_IF_Exported_Variables
+ 113:Src/usbd_iad_if.c ****   * @brief Public variables.
+ 114:Src/usbd_iad_if.c ****   * @{
+ 115:Src/usbd_iad_if.c ****   */
+ 116:Src/usbd_iad_if.c **** 
+ 117:Src/usbd_iad_if.c **** extern USBD_HandleTypeDef hUsbDeviceFS;
+ 118:Src/usbd_iad_if.c **** 
+ 119:Src/usbd_iad_if.c **** /* USER CODE BEGIN EXPORTED_VARIABLES */
+ 120:Src/usbd_iad_if.c **** 
+ 121:Src/usbd_iad_if.c **** /* USER CODE END EXPORTED_VARIABLES */
+ 122:Src/usbd_iad_if.c **** 
+ 123:Src/usbd_iad_if.c **** /**
+ 124:Src/usbd_iad_if.c ****   * @}
+ 125:Src/usbd_iad_if.c ****   */
+ 126:Src/usbd_iad_if.c **** 
+ 127:Src/usbd_iad_if.c **** /** @defgroup USBD_CDC_IF_Private_FunctionPrototypes USBD_CDC_IF_Private_FunctionPrototypes
+ 128:Src/usbd_iad_if.c ****   * @brief Private functions declaration.
+ 129:Src/usbd_iad_if.c ****   * @{
+ 130:Src/usbd_iad_if.c ****   */
+ 131:Src/usbd_iad_if.c **** 
+ 132:Src/usbd_iad_if.c **** static int8_t IAD_Init_FS(void);
+ 133:Src/usbd_iad_if.c **** static int8_t IAD_DeInit_FS(void);
+ 134:Src/usbd_iad_if.c **** static int8_t IAD_Control_FS(uint8_t cmd, uint8_t* pbuf, uint16_t length);
+ 135:Src/usbd_iad_if.c **** static int8_t IAD_Receive_CDC1_FS(uint8_t* pbuf, uint32_t *Len);
+ 136:Src/usbd_iad_if.c **** static int8_t IAD_Receive_CDC2_FS(uint8_t* pbuf, uint32_t *Len);
+ 137:Src/usbd_iad_if.c **** /* USER CODE BEGIN PRIVATE_FUNCTIONS_DECLARATION */
+ 138:Src/usbd_iad_if.c **** 
+ 139:Src/usbd_iad_if.c **** /* USER CODE END PRIVATE_FUNCTIONS_DECLARATION */
+ 140:Src/usbd_iad_if.c **** 
+ 141:Src/usbd_iad_if.c **** /**
+ 142:Src/usbd_iad_if.c ****   * @}
+ 143:Src/usbd_iad_if.c ****   */
+ 144:Src/usbd_iad_if.c **** 
+ 145:Src/usbd_iad_if.c **** USBD_IAD_ItfTypeDef USBD_IAD_Interface_fops_FS =
+ 146:Src/usbd_iad_if.c **** {
+ARM GAS  /tmp/ccJKIFMf.s 			page 4
+
+
+ 147:Src/usbd_iad_if.c **** 	IAD_Init_FS,
+ 148:Src/usbd_iad_if.c **** 	IAD_DeInit_FS,
+ 149:Src/usbd_iad_if.c **** 	IAD_Control_FS,
+ 150:Src/usbd_iad_if.c **** 	IAD_Receive_CDC1_FS,
+ 151:Src/usbd_iad_if.c **** 	IAD_Receive_CDC2_FS
+ 152:Src/usbd_iad_if.c **** };
+ 153:Src/usbd_iad_if.c **** 
+ 154:Src/usbd_iad_if.c **** /* Private functions ---------------------------------------------------------*/
+ 155:Src/usbd_iad_if.c **** /**
+ 156:Src/usbd_iad_if.c ****  * @brief  IAD_Init_FS
+ 157:Src/usbd_iad_if.c ****  *         Initializes the IAD media low layer over the USB FS IP
+ 158:Src/usbd_iad_if.c ****  * @param  None
+ 159:Src/usbd_iad_if.c ****  * @retval Result of the operation: USBD_OK if all operations are OK else USBD_FAIL
+ 160:Src/usbd_iad_if.c ****  */
+ 161:Src/usbd_iad_if.c **** static int8_t IAD_Init_FS(void) {
+ 162:Src/usbd_iad_if.c **** 	/* USER CODE BEGIN 8 */
+ 163:Src/usbd_iad_if.c **** 	/* Set Application Buffers */
+ 164:Src/usbd_iad_if.c **** 	USBD_IAD_CDC1_SetTxBuffer(&hUsbDeviceFS, UserTxBufferFS1, 0);
+ 165:Src/usbd_iad_if.c **** 	USBD_IAD_CDC1_SetRxBuffer(&hUsbDeviceFS, UserRxBufferFS1);
+ 166:Src/usbd_iad_if.c **** 	UserRxLenFS1 = 0;
+ 167:Src/usbd_iad_if.c **** 
+ 168:Src/usbd_iad_if.c **** 	USBD_IAD_CDC2_SetTxBuffer(&hUsbDeviceFS, UserTxBufferFS2, 0);
+ 169:Src/usbd_iad_if.c **** 	USBD_IAD_CDC2_SetRxBuffer(&hUsbDeviceFS, UserRxBufferFS2);
+ 170:Src/usbd_iad_if.c **** 	UserRxLenFS2 = 0;
+ 171:Src/usbd_iad_if.c **** 	return (USBD_OK);
+ 172:Src/usbd_iad_if.c **** 	/* USER CODE END 8 */
+ 173:Src/usbd_iad_if.c **** }
+ 174:Src/usbd_iad_if.c **** 
+ 175:Src/usbd_iad_if.c **** /**
+ 176:Src/usbd_iad_if.c ****  * @brief  IAD_DeInit_FS
+ 177:Src/usbd_iad_if.c ****  *         DeInitializes the IAD media low layer
+ 178:Src/usbd_iad_if.c ****  * @param  None
+ 179:Src/usbd_iad_if.c ****  * @retval Result of the operation: USBD_OK if all operations are OK else USBD_FAIL
+ 180:Src/usbd_iad_if.c ****  */
+ 181:Src/usbd_iad_if.c **** static int8_t IAD_DeInit_FS(void) {
+  27              		.loc 1 181 35 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+ 182:Src/usbd_iad_if.c **** 	/* USER CODE BEGIN 9 */
+ 183:Src/usbd_iad_if.c **** 	return (USBD_OK);
+  32              		.loc 1 183 2 view .LVU1
+ 184:Src/usbd_iad_if.c **** 	/* USER CODE END 9 */
+ 185:Src/usbd_iad_if.c **** }
+  33              		.loc 1 185 1 is_stmt 0 view .LVU2
+  34 0000 0020     		movs	r0, #0
+  35 0002 7047     		bx	lr
+  36              		.cfi_endproc
+  37              	.LFE146:
+  39              		.section	.text.IAD_Control_FS,"ax",%progbits
+  40              		.align	1
+  41              		.syntax unified
+  42              		.thumb
+  43              		.thumb_func
+  44              		.fpu fpv5-d16
+  46              	IAD_Control_FS:
+ARM GAS  /tmp/ccJKIFMf.s 			page 5
+
+
+  47              	.LVL0:
+  48              	.LFB147:
+ 186:Src/usbd_iad_if.c **** 
+ 187:Src/usbd_iad_if.c **** /**
+ 188:Src/usbd_iad_if.c ****  * @brief  IAD_Control_FS
+ 189:Src/usbd_iad_if.c ****  *         Manage the IAD class requests
+ 190:Src/usbd_iad_if.c ****  * @param  cmd: Command code
+ 191:Src/usbd_iad_if.c ****  * @param  pbuf: Buffer containing command data (request parameters)
+ 192:Src/usbd_iad_if.c ****  * @param  length: Number of data to be sent (in bytes)
+ 193:Src/usbd_iad_if.c ****  * @retval Result of the operation: USBD_OK if all operations are OK else USBD_FAIL
+ 194:Src/usbd_iad_if.c ****  */
+ 195:Src/usbd_iad_if.c **** static int8_t IAD_Control_FS(uint8_t cmd, uint8_t* pbuf, uint16_t length) {
+  49              		.loc 1 195 75 is_stmt 1 view -0
+  50              		.cfi_startproc
+  51              		@ args = 0, pretend = 0, frame = 0
+  52              		@ frame_needed = 0, uses_anonymous_args = 0
+  53              		@ link register save eliminated.
+ 196:Src/usbd_iad_if.c **** 	/* USER CODE BEGIN 10 */
+ 197:Src/usbd_iad_if.c **** 	switch (cmd) {
+  54              		.loc 1 197 2 view .LVU4
+  55 0000 2128     		cmp	r0, #33
+  56 0002 01D0     		beq	.L4
+  57              	.L3:
+ 198:Src/usbd_iad_if.c **** 	case IAD_SEND_ENCAPSULATED_COMMAND:
+ 199:Src/usbd_iad_if.c **** 
+ 200:Src/usbd_iad_if.c **** 		break;
+ 201:Src/usbd_iad_if.c **** 
+ 202:Src/usbd_iad_if.c **** 	case IAD_GET_ENCAPSULATED_RESPONSE:
+ 203:Src/usbd_iad_if.c **** 
+ 204:Src/usbd_iad_if.c **** 		break;
+ 205:Src/usbd_iad_if.c **** 
+ 206:Src/usbd_iad_if.c **** 	case IAD_SET_COMM_FEATURE:
+ 207:Src/usbd_iad_if.c **** 
+ 208:Src/usbd_iad_if.c **** 		break;
+ 209:Src/usbd_iad_if.c **** 
+ 210:Src/usbd_iad_if.c **** 	case IAD_GET_COMM_FEATURE:
+ 211:Src/usbd_iad_if.c **** 
+ 212:Src/usbd_iad_if.c **** 		break;
+ 213:Src/usbd_iad_if.c **** 
+ 214:Src/usbd_iad_if.c **** 	case IAD_CLEAR_COMM_FEATURE:
+ 215:Src/usbd_iad_if.c **** 
+ 216:Src/usbd_iad_if.c **** 		break;
+ 217:Src/usbd_iad_if.c **** 
+ 218:Src/usbd_iad_if.c **** 		/*******************************************************************************/
+ 219:Src/usbd_iad_if.c **** 		/* Line Coding Structure                                                       */
+ 220:Src/usbd_iad_if.c **** 		/*-----------------------------------------------------------------------------*/
+ 221:Src/usbd_iad_if.c **** 		/* Offset | Field       | Size | Value  | Description                          */
+ 222:Src/usbd_iad_if.c **** 		/* 0      | dwDTERate   |   4  | Number |Data terminal rate, in bits per second*/
+ 223:Src/usbd_iad_if.c **** 		/* 4      | bCharFormat |   1  | Number | Stop bits                            */
+ 224:Src/usbd_iad_if.c **** 		/*                                        0 - 1 Stop bit                       */
+ 225:Src/usbd_iad_if.c **** 		/*                                        1 - 1.5 Stop bits                    */
+ 226:Src/usbd_iad_if.c **** 		/*                                        2 - 2 Stop bits                      */
+ 227:Src/usbd_iad_if.c **** 		/* 5      | bParityType |  1   | Number | Parity                               */
+ 228:Src/usbd_iad_if.c **** 		/*                                        0 - None                             */
+ 229:Src/usbd_iad_if.c **** 		/*                                        1 - Odd                              */
+ 230:Src/usbd_iad_if.c **** 		/*                                        2 - Even                             */
+ 231:Src/usbd_iad_if.c **** 		/*                                        3 - Mark                             */
+ARM GAS  /tmp/ccJKIFMf.s 			page 6
+
+
+ 232:Src/usbd_iad_if.c **** 		/*                                        4 - Space                            */
+ 233:Src/usbd_iad_if.c **** 		/* 6      | bDataBits  |   1   | Number Data bits (5, 6, 7, 8 or 16).          */
+ 234:Src/usbd_iad_if.c **** 		/*******************************************************************************/
+ 235:Src/usbd_iad_if.c **** 	case IAD_SET_LINE_CODING:
+ 236:Src/usbd_iad_if.c **** 
+ 237:Src/usbd_iad_if.c **** 		break;
+ 238:Src/usbd_iad_if.c **** 
+ 239:Src/usbd_iad_if.c **** 	case IAD_GET_LINE_CODING:
+ 240:Src/usbd_iad_if.c **** 		pbuf[0] = (uint8_t) (9600 >> 0);
+ 241:Src/usbd_iad_if.c **** 		pbuf[1] = (uint8_t) (9600 >> 8);
+ 242:Src/usbd_iad_if.c **** 		pbuf[2] = (uint8_t) (9600 >> 16);
+ 243:Src/usbd_iad_if.c **** 		pbuf[3] = (uint8_t) (9600 >> 24);
+ 244:Src/usbd_iad_if.c **** 		pbuf[4] = 0x00;
+ 245:Src/usbd_iad_if.c **** 		pbuf[5] = 0x00;
+ 246:Src/usbd_iad_if.c **** 		pbuf[6] = 0x08;
+ 247:Src/usbd_iad_if.c **** 		break;
+ 248:Src/usbd_iad_if.c **** 
+ 249:Src/usbd_iad_if.c ****     case IAD_SET_CONTROL_LINE_STATE:
+ 250:Src/usbd_iad_if.c **** 
+ 251:Src/usbd_iad_if.c **** 
+ 252:Src/usbd_iad_if.c ****     break;
+ 253:Src/usbd_iad_if.c **** 
+ 254:Src/usbd_iad_if.c ****   default:
+ 255:Src/usbd_iad_if.c ****     break;
+ 256:Src/usbd_iad_if.c ****   }
+ 257:Src/usbd_iad_if.c **** 
+ 258:Src/usbd_iad_if.c ****   return (USBD_OK);
+  58              		.loc 1 258 3 view .LVU5
+ 259:Src/usbd_iad_if.c ****   /* USER CODE END 5 */
+ 260:Src/usbd_iad_if.c **** }
+  59              		.loc 1 260 1 is_stmt 0 view .LVU6
+  60 0004 0020     		movs	r0, #0
+  61              	.LVL1:
+  62              		.loc 1 260 1 view .LVU7
+  63 0006 7047     		bx	lr
+  64              	.LVL2:
+  65              	.L4:
+ 240:Src/usbd_iad_if.c **** 		pbuf[1] = (uint8_t) (9600 >> 8);
+  66              		.loc 1 240 3 is_stmt 1 view .LVU8
+ 240:Src/usbd_iad_if.c **** 		pbuf[1] = (uint8_t) (9600 >> 8);
+  67              		.loc 1 240 11 is_stmt 0 view .LVU9
+  68 0008 8023     		movs	r3, #128
+  69 000a 0B70     		strb	r3, [r1]
+ 241:Src/usbd_iad_if.c **** 		pbuf[2] = (uint8_t) (9600 >> 16);
+  70              		.loc 1 241 3 is_stmt 1 view .LVU10
+ 241:Src/usbd_iad_if.c **** 		pbuf[2] = (uint8_t) (9600 >> 16);
+  71              		.loc 1 241 11 is_stmt 0 view .LVU11
+  72 000c 2523     		movs	r3, #37
+  73 000e 4B70     		strb	r3, [r1, #1]
+ 242:Src/usbd_iad_if.c **** 		pbuf[3] = (uint8_t) (9600 >> 24);
+  74              		.loc 1 242 3 is_stmt 1 view .LVU12
+ 242:Src/usbd_iad_if.c **** 		pbuf[3] = (uint8_t) (9600 >> 24);
+  75              		.loc 1 242 11 is_stmt 0 view .LVU13
+  76 0010 0023     		movs	r3, #0
+  77 0012 8B70     		strb	r3, [r1, #2]
+ 243:Src/usbd_iad_if.c **** 		pbuf[4] = 0x00;
+  78              		.loc 1 243 3 is_stmt 1 view .LVU14
+ARM GAS  /tmp/ccJKIFMf.s 			page 7
+
+
+ 243:Src/usbd_iad_if.c **** 		pbuf[4] = 0x00;
+  79              		.loc 1 243 11 is_stmt 0 view .LVU15
+  80 0014 CB70     		strb	r3, [r1, #3]
+ 244:Src/usbd_iad_if.c **** 		pbuf[5] = 0x00;
+  81              		.loc 1 244 3 is_stmt 1 view .LVU16
+ 244:Src/usbd_iad_if.c **** 		pbuf[5] = 0x00;
+  82              		.loc 1 244 11 is_stmt 0 view .LVU17
+  83 0016 0B71     		strb	r3, [r1, #4]
+ 245:Src/usbd_iad_if.c **** 		pbuf[6] = 0x08;
+  84              		.loc 1 245 3 is_stmt 1 view .LVU18
+ 245:Src/usbd_iad_if.c **** 		pbuf[6] = 0x08;
+  85              		.loc 1 245 11 is_stmt 0 view .LVU19
+  86 0018 4B71     		strb	r3, [r1, #5]
+ 246:Src/usbd_iad_if.c **** 		break;
+  87              		.loc 1 246 3 is_stmt 1 view .LVU20
+ 246:Src/usbd_iad_if.c **** 		break;
+  88              		.loc 1 246 11 is_stmt 0 view .LVU21
+  89 001a 0823     		movs	r3, #8
+  90 001c 8B71     		strb	r3, [r1, #6]
+ 247:Src/usbd_iad_if.c **** 
+  91              		.loc 1 247 3 is_stmt 1 view .LVU22
+  92 001e F1E7     		b	.L3
+  93              		.cfi_endproc
+  94              	.LFE147:
+  96              		.section	.text.IAD_Receive_CDC2_FS,"ax",%progbits
+  97              		.align	1
+  98              		.syntax unified
+  99              		.thumb
+ 100              		.thumb_func
+ 101              		.fpu fpv5-d16
+ 103              	IAD_Receive_CDC2_FS:
+ 104              	.LVL3:
+ 105              	.LFB149:
+ 261:Src/usbd_iad_if.c **** 
+ 262:Src/usbd_iad_if.c **** /**
+ 263:Src/usbd_iad_if.c ****  * @brief  IAD_Receive_FS
+ 264:Src/usbd_iad_if.c ****  *         Data received over USB OUT endpoint are sent over IAD interface
+ 265:Src/usbd_iad_if.c ****  *         through this function.
+ 266:Src/usbd_iad_if.c ****  *
+ 267:Src/usbd_iad_if.c ****  *         @note
+ 268:Src/usbd_iad_if.c ****  *         This function will block any OUT packet reception on USB endpoint
+ 269:Src/usbd_iad_if.c ****  *         untill exiting this function. If you exit this function before transfer
+ 270:Src/usbd_iad_if.c ****  *         is complete on IAD interface (ie. using DMA controller) it will result
+ 271:Src/usbd_iad_if.c ****  *         in receiving more data while previous ones are still not sent.
+ 272:Src/usbd_iad_if.c ****  *
+ 273:Src/usbd_iad_if.c ****  * @param  Buf: Buffer of data to be received
+ 274:Src/usbd_iad_if.c ****  * @param  Len: Number of data received (in bytes)
+ 275:Src/usbd_iad_if.c ****  * @retval Result of the operation: USBD_OK if all operations are OK else USBD_FAIL
+ 276:Src/usbd_iad_if.c ****  */
+ 277:Src/usbd_iad_if.c **** static int8_t IAD_Receive_CDC1_FS(uint8_t* Buf, uint32_t *Len) {
+ 278:Src/usbd_iad_if.c **** 	/* USER CODE BEGIN 11 */
+ 279:Src/usbd_iad_if.c **** 	USBD_IAD_CDC1_SetRxBuffer(&hUsbDeviceFS, &Buf[*Len]);
+ 280:Src/usbd_iad_if.c **** 	UserRxLenFS1 += *Len;
+ 281:Src/usbd_iad_if.c **** 	USBD_IAD_CDC1_ReceivePacket(&hUsbDeviceFS);
+ 282:Src/usbd_iad_if.c **** 	return (USBD_OK);
+ 283:Src/usbd_iad_if.c **** 	/* USER CODE END 11 */
+ 284:Src/usbd_iad_if.c **** }
+ARM GAS  /tmp/ccJKIFMf.s 			page 8
+
+
+ 285:Src/usbd_iad_if.c **** 
+ 286:Src/usbd_iad_if.c **** /**
+ 287:Src/usbd_iad_if.c ****  * @brief  IAD_Receive_FS
+ 288:Src/usbd_iad_if.c ****  *         Data received over USB OUT endpoint are sent over IAD interface
+ 289:Src/usbd_iad_if.c ****  *         through this function.
+ 290:Src/usbd_iad_if.c ****  *
+ 291:Src/usbd_iad_if.c ****  *         @note
+ 292:Src/usbd_iad_if.c ****  *         This function will block any OUT packet reception on USB endpoint
+ 293:Src/usbd_iad_if.c ****  *         untill exiting this function. If you exit this function before transfer
+ 294:Src/usbd_iad_if.c ****  *         is complete on IAD interface (ie. using DMA controller) it will result
+ 295:Src/usbd_iad_if.c ****  *         in receiving more data while previous ones are still not sent.
+ 296:Src/usbd_iad_if.c ****  *
+ 297:Src/usbd_iad_if.c ****  * @param  Buf: Buffer of data to be received
+ 298:Src/usbd_iad_if.c ****  * @param  Len: Number of data received (in bytes)
+ 299:Src/usbd_iad_if.c ****  * @retval Result of the operation: USBD_OK if all operations are OK else USBD_FAIL
+ 300:Src/usbd_iad_if.c ****  */
+ 301:Src/usbd_iad_if.c **** static int8_t IAD_Receive_CDC2_FS(uint8_t* Buf, uint32_t *Len) {
+ 106              		.loc 1 301 64 view -0
+ 107              		.cfi_startproc
+ 108              		@ args = 0, pretend = 0, frame = 0
+ 109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 110              		.loc 1 301 64 is_stmt 0 view .LVU24
+ 111 0000 38B5     		push	{r3, r4, r5, lr}
+ 112              	.LCFI0:
+ 113              		.cfi_def_cfa_offset 16
+ 114              		.cfi_offset 3, -16
+ 115              		.cfi_offset 4, -12
+ 116              		.cfi_offset 5, -8
+ 117              		.cfi_offset 14, -4
+ 118 0002 0C46     		mov	r4, r1
+ 302:Src/usbd_iad_if.c **** 	/* USER CODE BEGIN 11 */
+ 303:Src/usbd_iad_if.c **** 	USBD_IAD_CDC2_SetRxBuffer(&hUsbDeviceFS, &Buf[*Len]);
+ 119              		.loc 1 303 2 is_stmt 1 view .LVU25
+ 120              		.loc 1 303 48 is_stmt 0 view .LVU26
+ 121 0004 0968     		ldr	r1, [r1]
+ 122              	.LVL4:
+ 123              		.loc 1 303 2 view .LVU27
+ 124 0006 074D     		ldr	r5, .L7
+ 125 0008 0144     		add	r1, r1, r0
+ 126 000a 2846     		mov	r0, r5
+ 127              	.LVL5:
+ 128              		.loc 1 303 2 view .LVU28
+ 129 000c FFF7FEFF 		bl	USBD_IAD_CDC2_SetRxBuffer
+ 130              	.LVL6:
+ 304:Src/usbd_iad_if.c **** 	UserRxLenFS2 += *Len;
+ 131              		.loc 1 304 2 is_stmt 1 view .LVU29
+ 132              		.loc 1 304 18 is_stmt 0 view .LVU30
+ 133 0010 2168     		ldr	r1, [r4]
+ 134              		.loc 1 304 15 view .LVU31
+ 135 0012 054A     		ldr	r2, .L7+4
+ 136 0014 1368     		ldr	r3, [r2]
+ 137 0016 0B44     		add	r3, r3, r1
+ 138 0018 1360     		str	r3, [r2]
+ 305:Src/usbd_iad_if.c **** 	USBD_IAD_CDC2_ReceivePacket(&hUsbDeviceFS);
+ 139              		.loc 1 305 2 is_stmt 1 view .LVU32
+ 140 001a 2846     		mov	r0, r5
+ 141 001c FFF7FEFF 		bl	USBD_IAD_CDC2_ReceivePacket
+ARM GAS  /tmp/ccJKIFMf.s 			page 9
+
+
+ 142              	.LVL7:
+ 306:Src/usbd_iad_if.c **** 	return (USBD_OK);
+ 143              		.loc 1 306 2 view .LVU33
+ 307:Src/usbd_iad_if.c **** 	/* USER CODE END 11 */
+ 308:Src/usbd_iad_if.c **** }
+ 144              		.loc 1 308 1 is_stmt 0 view .LVU34
+ 145 0020 0020     		movs	r0, #0
+ 146 0022 38BD     		pop	{r3, r4, r5, pc}
+ 147              	.LVL8:
+ 148              	.L8:
+ 149              		.loc 1 308 1 view .LVU35
+ 150              		.align	2
+ 151              	.L7:
+ 152 0024 00000000 		.word	hUsbDeviceFS
+ 153 0028 00000000 		.word	UserRxLenFS2
+ 154              		.cfi_endproc
+ 155              	.LFE149:
+ 157              		.section	.text.IAD_Receive_CDC1_FS,"ax",%progbits
+ 158              		.align	1
+ 159              		.syntax unified
+ 160              		.thumb
+ 161              		.thumb_func
+ 162              		.fpu fpv5-d16
+ 164              	IAD_Receive_CDC1_FS:
+ 165              	.LVL9:
+ 166              	.LFB148:
+ 277:Src/usbd_iad_if.c **** 	/* USER CODE BEGIN 11 */
+ 167              		.loc 1 277 64 is_stmt 1 view -0
+ 168              		.cfi_startproc
+ 169              		@ args = 0, pretend = 0, frame = 0
+ 170              		@ frame_needed = 0, uses_anonymous_args = 0
+ 277:Src/usbd_iad_if.c **** 	/* USER CODE BEGIN 11 */
+ 171              		.loc 1 277 64 is_stmt 0 view .LVU37
+ 172 0000 38B5     		push	{r3, r4, r5, lr}
+ 173              	.LCFI1:
+ 174              		.cfi_def_cfa_offset 16
+ 175              		.cfi_offset 3, -16
+ 176              		.cfi_offset 4, -12
+ 177              		.cfi_offset 5, -8
+ 178              		.cfi_offset 14, -4
+ 179 0002 0C46     		mov	r4, r1
+ 279:Src/usbd_iad_if.c **** 	UserRxLenFS1 += *Len;
+ 180              		.loc 1 279 2 is_stmt 1 view .LVU38
+ 279:Src/usbd_iad_if.c **** 	UserRxLenFS1 += *Len;
+ 181              		.loc 1 279 48 is_stmt 0 view .LVU39
+ 182 0004 0968     		ldr	r1, [r1]
+ 183              	.LVL10:
+ 279:Src/usbd_iad_if.c **** 	UserRxLenFS1 += *Len;
+ 184              		.loc 1 279 2 view .LVU40
+ 185 0006 074D     		ldr	r5, .L11
+ 186 0008 0144     		add	r1, r1, r0
+ 187 000a 2846     		mov	r0, r5
+ 188              	.LVL11:
+ 279:Src/usbd_iad_if.c **** 	UserRxLenFS1 += *Len;
+ 189              		.loc 1 279 2 view .LVU41
+ 190 000c FFF7FEFF 		bl	USBD_IAD_CDC1_SetRxBuffer
+ 191              	.LVL12:
+ARM GAS  /tmp/ccJKIFMf.s 			page 10
+
+
+ 280:Src/usbd_iad_if.c **** 	USBD_IAD_CDC1_ReceivePacket(&hUsbDeviceFS);
+ 192              		.loc 1 280 2 is_stmt 1 view .LVU42
+ 280:Src/usbd_iad_if.c **** 	USBD_IAD_CDC1_ReceivePacket(&hUsbDeviceFS);
+ 193              		.loc 1 280 18 is_stmt 0 view .LVU43
+ 194 0010 2168     		ldr	r1, [r4]
+ 280:Src/usbd_iad_if.c **** 	USBD_IAD_CDC1_ReceivePacket(&hUsbDeviceFS);
+ 195              		.loc 1 280 15 view .LVU44
+ 196 0012 054A     		ldr	r2, .L11+4
+ 197 0014 1368     		ldr	r3, [r2]
+ 198 0016 0B44     		add	r3, r3, r1
+ 199 0018 1360     		str	r3, [r2]
+ 281:Src/usbd_iad_if.c **** 	return (USBD_OK);
+ 200              		.loc 1 281 2 is_stmt 1 view .LVU45
+ 201 001a 2846     		mov	r0, r5
+ 202 001c FFF7FEFF 		bl	USBD_IAD_CDC1_ReceivePacket
+ 203              	.LVL13:
+ 282:Src/usbd_iad_if.c **** 	/* USER CODE END 11 */
+ 204              		.loc 1 282 2 view .LVU46
+ 284:Src/usbd_iad_if.c **** 
+ 205              		.loc 1 284 1 is_stmt 0 view .LVU47
+ 206 0020 0020     		movs	r0, #0
+ 207 0022 38BD     		pop	{r3, r4, r5, pc}
+ 208              	.LVL14:
+ 209              	.L12:
+ 284:Src/usbd_iad_if.c **** 
+ 210              		.loc 1 284 1 view .LVU48
+ 211              		.align	2
+ 212              	.L11:
+ 213 0024 00000000 		.word	hUsbDeviceFS
+ 214 0028 00000000 		.word	UserRxLenFS1
+ 215              		.cfi_endproc
+ 216              	.LFE148:
+ 218              		.section	.text.IAD_Init_FS,"ax",%progbits
+ 219              		.align	1
+ 220              		.syntax unified
+ 221              		.thumb
+ 222              		.thumb_func
+ 223              		.fpu fpv5-d16
+ 225              	IAD_Init_FS:
+ 226              	.LFB145:
+ 161:Src/usbd_iad_if.c **** 	/* USER CODE BEGIN 8 */
+ 227              		.loc 1 161 33 is_stmt 1 view -0
+ 228              		.cfi_startproc
+ 229              		@ args = 0, pretend = 0, frame = 0
+ 230              		@ frame_needed = 0, uses_anonymous_args = 0
+ 231 0000 38B5     		push	{r3, r4, r5, lr}
+ 232              	.LCFI2:
+ 233              		.cfi_def_cfa_offset 16
+ 234              		.cfi_offset 3, -16
+ 235              		.cfi_offset 4, -12
+ 236              		.cfi_offset 5, -8
+ 237              		.cfi_offset 14, -4
+ 164:Src/usbd_iad_if.c **** 	USBD_IAD_CDC1_SetRxBuffer(&hUsbDeviceFS, UserRxBufferFS1);
+ 238              		.loc 1 164 2 view .LVU50
+ 239 0002 0D4D     		ldr	r5, .L15
+ 240 0004 0022     		movs	r2, #0
+ 241 0006 0D49     		ldr	r1, .L15+4
+ARM GAS  /tmp/ccJKIFMf.s 			page 11
+
+
+ 242 0008 2846     		mov	r0, r5
+ 243 000a FFF7FEFF 		bl	USBD_IAD_CDC1_SetTxBuffer
+ 244              	.LVL15:
+ 165:Src/usbd_iad_if.c **** 	UserRxLenFS1 = 0;
+ 245              		.loc 1 165 2 view .LVU51
+ 246 000e 0C49     		ldr	r1, .L15+8
+ 247 0010 2846     		mov	r0, r5
+ 248 0012 FFF7FEFF 		bl	USBD_IAD_CDC1_SetRxBuffer
+ 249              	.LVL16:
+ 166:Src/usbd_iad_if.c **** 
+ 250              		.loc 1 166 2 view .LVU52
+ 166:Src/usbd_iad_if.c **** 
+ 251              		.loc 1 166 15 is_stmt 0 view .LVU53
+ 252 0016 0024     		movs	r4, #0
+ 253 0018 0A4B     		ldr	r3, .L15+12
+ 254 001a 1C60     		str	r4, [r3]
+ 168:Src/usbd_iad_if.c **** 	USBD_IAD_CDC2_SetRxBuffer(&hUsbDeviceFS, UserRxBufferFS2);
+ 255              		.loc 1 168 2 is_stmt 1 view .LVU54
+ 256 001c 2246     		mov	r2, r4
+ 257 001e 0A49     		ldr	r1, .L15+16
+ 258 0020 2846     		mov	r0, r5
+ 259 0022 FFF7FEFF 		bl	USBD_IAD_CDC2_SetTxBuffer
+ 260              	.LVL17:
+ 169:Src/usbd_iad_if.c **** 	UserRxLenFS2 = 0;
+ 261              		.loc 1 169 2 view .LVU55
+ 262 0026 0949     		ldr	r1, .L15+20
+ 263 0028 2846     		mov	r0, r5
+ 264 002a FFF7FEFF 		bl	USBD_IAD_CDC2_SetRxBuffer
+ 265              	.LVL18:
+ 170:Src/usbd_iad_if.c **** 	return (USBD_OK);
+ 266              		.loc 1 170 2 view .LVU56
+ 170:Src/usbd_iad_if.c **** 	return (USBD_OK);
+ 267              		.loc 1 170 15 is_stmt 0 view .LVU57
+ 268 002e 084B     		ldr	r3, .L15+24
+ 269 0030 1C60     		str	r4, [r3]
+ 171:Src/usbd_iad_if.c **** 	/* USER CODE END 8 */
+ 270              		.loc 1 171 2 is_stmt 1 view .LVU58
+ 173:Src/usbd_iad_if.c **** 
+ 271              		.loc 1 173 1 is_stmt 0 view .LVU59
+ 272 0032 2046     		mov	r0, r4
+ 273 0034 38BD     		pop	{r3, r4, r5, pc}
+ 274              	.L16:
+ 275 0036 00BF     		.align	2
+ 276              	.L15:
+ 277 0038 00000000 		.word	hUsbDeviceFS
+ 278 003c 00000000 		.word	UserTxBufferFS1
+ 279 0040 00000000 		.word	UserRxBufferFS1
+ 280 0044 00000000 		.word	UserRxLenFS1
+ 281 0048 00000000 		.word	UserTxBufferFS2
+ 282 004c 00000000 		.word	UserRxBufferFS2
+ 283 0050 00000000 		.word	UserRxLenFS2
+ 284              		.cfi_endproc
+ 285              	.LFE145:
+ 287              		.section	.text.IAD_CDC1_Transmit_FS,"ax",%progbits
+ 288              		.align	1
+ 289              		.global	IAD_CDC1_Transmit_FS
+ 290              		.syntax unified
+ARM GAS  /tmp/ccJKIFMf.s 			page 12
+
+
+ 291              		.thumb
+ 292              		.thumb_func
+ 293              		.fpu fpv5-d16
+ 295              	IAD_CDC1_Transmit_FS:
+ 296              	.LVL19:
+ 297              	.LFB150:
+ 309:Src/usbd_iad_if.c **** 
+ 310:Src/usbd_iad_if.c **** /**
+ 311:Src/usbd_iad_if.c ****  * @brief  IAD_Transmit_FS
+ 312:Src/usbd_iad_if.c ****  *         Data send over USB IN endpoint are sent over IAD interface
+ 313:Src/usbd_iad_if.c ****  *         through this function.
+ 314:Src/usbd_iad_if.c ****  *         @note
+ 315:Src/usbd_iad_if.c ****  *
+ 316:Src/usbd_iad_if.c ****  *
+ 317:Src/usbd_iad_if.c ****  * @param  Buf: Buffer of data to be send
+ 318:Src/usbd_iad_if.c ****  * @param  Len: Number of data to be send (in bytes)
+ 319:Src/usbd_iad_if.c ****  * @retval Result of the operation: USBD_OK if all operations are OK else USBD_FAIL or USBD_BUSY
+ 320:Src/usbd_iad_if.c ****  */
+ 321:Src/usbd_iad_if.c **** uint8_t IAD_CDC1_Transmit_FS(uint8_t* Buf, uint16_t Len) {
+ 298              		.loc 1 321 58 is_stmt 1 view -0
+ 299              		.cfi_startproc
+ 300              		@ args = 0, pretend = 0, frame = 0
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 322:Src/usbd_iad_if.c **** 	uint8_t result = USBD_OK;
+ 302              		.loc 1 322 2 view .LVU61
+ 323:Src/usbd_iad_if.c **** 	/* USER CODE BEGIN 12 */
+ 324:Src/usbd_iad_if.c **** 	USBD_IAD_HandleTypeDef *hiad =
+ 303              		.loc 1 324 2 view .LVU62
+ 304              		.loc 1 324 26 is_stmt 0 view .LVU63
+ 305 0000 084B     		ldr	r3, .L25
+ 306 0002 D3F8BC32 		ldr	r3, [r3, #700]
+ 307              	.LVL20:
+ 325:Src/usbd_iad_if.c **** 			(USBD_IAD_HandleTypeDef*) hUsbDeviceFS.pClassData;
+ 326:Src/usbd_iad_if.c **** 	if (hiad->cdc1.TxState != 0) {
+ 308              		.loc 1 326 2 is_stmt 1 view .LVU64
+ 309              		.loc 1 326 16 is_stmt 0 view .LVU65
+ 310 0006 5B6D     		ldr	r3, [r3, #84]
+ 311              	.LVL21:
+ 312              		.loc 1 326 5 view .LVU66
+ 313 0008 0BB1     		cbz	r3, .L24
+ 327:Src/usbd_iad_if.c **** 		return USBD_BUSY;
+ 314              		.loc 1 327 10 view .LVU67
+ 315 000a 0120     		movs	r0, #1
+ 316              	.LVL22:
+ 328:Src/usbd_iad_if.c **** 	}
+ 329:Src/usbd_iad_if.c **** 	USBD_IAD_CDC1_SetTxBuffer(&hUsbDeviceFS, Buf, Len);
+ 330:Src/usbd_iad_if.c **** 	result = USBD_IAD_CDC1_TransmitPacket(&hUsbDeviceFS);
+ 331:Src/usbd_iad_if.c **** 	/* USER CODE END 12 */
+ 332:Src/usbd_iad_if.c **** 	return result;
+ 333:Src/usbd_iad_if.c **** }
+ 317              		.loc 1 333 1 view .LVU68
+ 318 000c 7047     		bx	lr
+ 319              	.LVL23:
+ 320              	.L24:
+ 321:Src/usbd_iad_if.c **** 	uint8_t result = USBD_OK;
+ 321              		.loc 1 321 58 view .LVU69
+ 322 000e 10B5     		push	{r4, lr}
+ARM GAS  /tmp/ccJKIFMf.s 			page 13
+
+
+ 323              	.LCFI3:
+ 324              		.cfi_def_cfa_offset 8
+ 325              		.cfi_offset 4, -8
+ 326              		.cfi_offset 14, -4
+ 329:Src/usbd_iad_if.c **** 	result = USBD_IAD_CDC1_TransmitPacket(&hUsbDeviceFS);
+ 327              		.loc 1 329 2 is_stmt 1 view .LVU70
+ 328 0010 044C     		ldr	r4, .L25
+ 329              	.LVL24:
+ 329:Src/usbd_iad_if.c **** 	result = USBD_IAD_CDC1_TransmitPacket(&hUsbDeviceFS);
+ 330              		.loc 1 329 2 is_stmt 0 view .LVU71
+ 331 0012 0A46     		mov	r2, r1
+ 332 0014 0146     		mov	r1, r0
+ 333              	.LVL25:
+ 329:Src/usbd_iad_if.c **** 	result = USBD_IAD_CDC1_TransmitPacket(&hUsbDeviceFS);
+ 334              		.loc 1 329 2 view .LVU72
+ 335 0016 2046     		mov	r0, r4
+ 336              	.LVL26:
+ 329:Src/usbd_iad_if.c **** 	result = USBD_IAD_CDC1_TransmitPacket(&hUsbDeviceFS);
+ 337              		.loc 1 329 2 view .LVU73
+ 338 0018 FFF7FEFF 		bl	USBD_IAD_CDC1_SetTxBuffer
+ 339              	.LVL27:
+ 330:Src/usbd_iad_if.c **** 	/* USER CODE END 12 */
+ 340              		.loc 1 330 2 is_stmt 1 view .LVU74
+ 330:Src/usbd_iad_if.c **** 	/* USER CODE END 12 */
+ 341              		.loc 1 330 11 is_stmt 0 view .LVU75
+ 342 001c 2046     		mov	r0, r4
+ 343 001e FFF7FEFF 		bl	USBD_IAD_CDC1_TransmitPacket
+ 344              	.LVL28:
+ 332:Src/usbd_iad_if.c **** }
+ 345              		.loc 1 332 2 is_stmt 1 view .LVU76
+ 346              		.loc 1 333 1 is_stmt 0 view .LVU77
+ 347 0022 10BD     		pop	{r4, pc}
+ 348              	.L26:
+ 349              		.align	2
+ 350              	.L25:
+ 351 0024 00000000 		.word	hUsbDeviceFS
+ 352              		.cfi_endproc
+ 353              	.LFE150:
+ 355              		.section	.text.IAD_CDC2_Transmit_FS,"ax",%progbits
+ 356              		.align	1
+ 357              		.global	IAD_CDC2_Transmit_FS
+ 358              		.syntax unified
+ 359              		.thumb
+ 360              		.thumb_func
+ 361              		.fpu fpv5-d16
+ 363              	IAD_CDC2_Transmit_FS:
+ 364              	.LVL29:
+ 365              	.LFB151:
+ 334:Src/usbd_iad_if.c **** 
+ 335:Src/usbd_iad_if.c **** /**
+ 336:Src/usbd_iad_if.c ****  * @brief  IAD_Transmit_FS
+ 337:Src/usbd_iad_if.c ****  *         Data send over USB IN endpoint are sent over IAD interface
+ 338:Src/usbd_iad_if.c ****  *         through this function.
+ 339:Src/usbd_iad_if.c ****  *         @note
+ 340:Src/usbd_iad_if.c ****  *
+ 341:Src/usbd_iad_if.c ****  *
+ 342:Src/usbd_iad_if.c ****  * @param  Buf: Buffer of data to be send
+ARM GAS  /tmp/ccJKIFMf.s 			page 14
+
+
+ 343:Src/usbd_iad_if.c ****  * @param  Len: Number of data to be send (in bytes)
+ 344:Src/usbd_iad_if.c ****  * @retval Result of the operation: USBD_OK if all operations are OK else USBD_FAIL or USBD_BUSY
+ 345:Src/usbd_iad_if.c ****  */
+ 346:Src/usbd_iad_if.c **** uint8_t IAD_CDC2_Transmit_FS(uint8_t* Buf, uint16_t Len) {
+ 366              		.loc 1 346 58 is_stmt 1 view -0
+ 367              		.cfi_startproc
+ 368              		@ args = 0, pretend = 0, frame = 0
+ 369              		@ frame_needed = 0, uses_anonymous_args = 0
+ 347:Src/usbd_iad_if.c **** 	uint8_t result = USBD_OK;
+ 370              		.loc 1 347 2 view .LVU79
+ 348:Src/usbd_iad_if.c **** 	/* USER CODE BEGIN 12 */
+ 349:Src/usbd_iad_if.c **** 	USBD_IAD_HandleTypeDef *hiad =
+ 371              		.loc 1 349 2 view .LVU80
+ 372              		.loc 1 349 26 is_stmt 0 view .LVU81
+ 373 0000 084B     		ldr	r3, .L35
+ 374 0002 D3F8BC32 		ldr	r3, [r3, #700]
+ 375              	.LVL30:
+ 350:Src/usbd_iad_if.c **** 			(USBD_IAD_HandleTypeDef*) hUsbDeviceFS.pClassData;
+ 351:Src/usbd_iad_if.c **** 	if (hiad->cdc2.TxState != 0) {
+ 376              		.loc 1 351 2 is_stmt 1 view .LVU82
+ 377              		.loc 1 351 16 is_stmt 0 view .LVU83
+ 378 0006 DB6E     		ldr	r3, [r3, #108]
+ 379              	.LVL31:
+ 380              		.loc 1 351 5 view .LVU84
+ 381 0008 0BB1     		cbz	r3, .L34
+ 352:Src/usbd_iad_if.c **** 		return USBD_BUSY;
+ 382              		.loc 1 352 10 view .LVU85
+ 383 000a 0120     		movs	r0, #1
+ 384              	.LVL32:
+ 353:Src/usbd_iad_if.c **** 	}
+ 354:Src/usbd_iad_if.c **** 	USBD_IAD_CDC2_SetTxBuffer(&hUsbDeviceFS, Buf, Len);
+ 355:Src/usbd_iad_if.c **** 	result = USBD_IAD_CDC2_TransmitPacket(&hUsbDeviceFS);
+ 356:Src/usbd_iad_if.c **** 	/* USER CODE END 12 */
+ 357:Src/usbd_iad_if.c **** 	return result;
+ 358:Src/usbd_iad_if.c **** }
+ 385              		.loc 1 358 1 view .LVU86
+ 386 000c 7047     		bx	lr
+ 387              	.LVL33:
+ 388              	.L34:
+ 346:Src/usbd_iad_if.c **** 	uint8_t result = USBD_OK;
+ 389              		.loc 1 346 58 view .LVU87
+ 390 000e 10B5     		push	{r4, lr}
+ 391              	.LCFI4:
+ 392              		.cfi_def_cfa_offset 8
+ 393              		.cfi_offset 4, -8
+ 394              		.cfi_offset 14, -4
+ 354:Src/usbd_iad_if.c **** 	result = USBD_IAD_CDC2_TransmitPacket(&hUsbDeviceFS);
+ 395              		.loc 1 354 2 is_stmt 1 view .LVU88
+ 396 0010 044C     		ldr	r4, .L35
+ 397              	.LVL34:
+ 354:Src/usbd_iad_if.c **** 	result = USBD_IAD_CDC2_TransmitPacket(&hUsbDeviceFS);
+ 398              		.loc 1 354 2 is_stmt 0 view .LVU89
+ 399 0012 0A46     		mov	r2, r1
+ 400 0014 0146     		mov	r1, r0
+ 401              	.LVL35:
+ 354:Src/usbd_iad_if.c **** 	result = USBD_IAD_CDC2_TransmitPacket(&hUsbDeviceFS);
+ 402              		.loc 1 354 2 view .LVU90
+ARM GAS  /tmp/ccJKIFMf.s 			page 15
+
+
+ 403 0016 2046     		mov	r0, r4
+ 404              	.LVL36:
+ 354:Src/usbd_iad_if.c **** 	result = USBD_IAD_CDC2_TransmitPacket(&hUsbDeviceFS);
+ 405              		.loc 1 354 2 view .LVU91
+ 406 0018 FFF7FEFF 		bl	USBD_IAD_CDC2_SetTxBuffer
+ 407              	.LVL37:
+ 355:Src/usbd_iad_if.c **** 	/* USER CODE END 12 */
+ 408              		.loc 1 355 2 is_stmt 1 view .LVU92
+ 355:Src/usbd_iad_if.c **** 	/* USER CODE END 12 */
+ 409              		.loc 1 355 11 is_stmt 0 view .LVU93
+ 410 001c 2046     		mov	r0, r4
+ 411 001e FFF7FEFF 		bl	USBD_IAD_CDC2_TransmitPacket
+ 412              	.LVL38:
+ 357:Src/usbd_iad_if.c **** }
+ 413              		.loc 1 357 2 is_stmt 1 view .LVU94
+ 414              		.loc 1 358 1 is_stmt 0 view .LVU95
+ 415 0022 10BD     		pop	{r4, pc}
+ 416              	.L36:
+ 417              		.align	2
+ 418              	.L35:
+ 419 0024 00000000 		.word	hUsbDeviceFS
+ 420              		.cfi_endproc
+ 421              	.LFE151:
+ 423              		.section	.text.CDC_Receive_VCP1_FS,"ax",%progbits
+ 424              		.align	1
+ 425              		.global	CDC_Receive_VCP1_FS
+ 426              		.syntax unified
+ 427              		.thumb
+ 428              		.thumb_func
+ 429              		.fpu fpv5-d16
+ 431              	CDC_Receive_VCP1_FS:
+ 432              	.LVL39:
+ 433              	.LFB152:
+ 359:Src/usbd_iad_if.c **** 
+ 360:Src/usbd_iad_if.c **** /* USER CODE BEGIN PRIVATE_FUNCTIONS_IMPLEMENTATION */
+ 361:Src/usbd_iad_if.c **** int8_t CDC_Receive_VCP1_FS(uint8_t* Buf, uint32_t *Len) {
+ 434              		.loc 1 361 57 is_stmt 1 view -0
+ 435              		.cfi_startproc
+ 436              		@ args = 0, pretend = 0, frame = 0
+ 437              		@ frame_needed = 0, uses_anonymous_args = 0
+ 438              		.loc 1 361 57 is_stmt 0 view .LVU97
+ 439 0000 38B5     		push	{r3, r4, r5, lr}
+ 440              	.LCFI5:
+ 441              		.cfi_def_cfa_offset 16
+ 442              		.cfi_offset 3, -16
+ 443              		.cfi_offset 4, -12
+ 444              		.cfi_offset 5, -8
+ 445              		.cfi_offset 14, -4
+ 446 0002 0C46     		mov	r4, r1
+ 362:Src/usbd_iad_if.c **** 	if (*Len > UserRxLenFS1)
+ 447              		.loc 1 362 2 is_stmt 1 view .LVU98
+ 448              		.loc 1 362 6 is_stmt 0 view .LVU99
+ 449 0004 0A68     		ldr	r2, [r1]
+ 450              		.loc 1 362 11 view .LVU100
+ 451 0006 114B     		ldr	r3, .L44
+ 452 0008 1B68     		ldr	r3, [r3]
+ 453              		.loc 1 362 5 view .LVU101
+ARM GAS  /tmp/ccJKIFMf.s 			page 16
+
+
+ 454 000a 9A42     		cmp	r2, r3
+ 455 000c 00D9     		bls	.L38
+ 363:Src/usbd_iad_if.c **** 		*Len = UserRxLenFS1;
+ 456              		.loc 1 363 3 is_stmt 1 view .LVU102
+ 457              		.loc 1 363 8 is_stmt 0 view .LVU103
+ 458 000e 0B60     		str	r3, [r1]
+ 459              	.L38:
+ 364:Src/usbd_iad_if.c **** 	if (*Len > 0) {
+ 460              		.loc 1 364 2 is_stmt 1 view .LVU104
+ 461              		.loc 1 364 6 is_stmt 0 view .LVU105
+ 462 0010 2268     		ldr	r2, [r4]
+ 463              		.loc 1 364 5 view .LVU106
+ 464 0012 0AB9     		cbnz	r2, .L42
+ 465              	.LVL40:
+ 466              	.L39:
+ 365:Src/usbd_iad_if.c **** 		memcpy(Buf, UserRxBufferFS1, *Len);
+ 366:Src/usbd_iad_if.c **** 
+ 367:Src/usbd_iad_if.c **** 		uint32_t bytesRemaining = UserRxLenFS1 - *Len;
+ 368:Src/usbd_iad_if.c **** 		if (bytesRemaining != 0)
+ 369:Src/usbd_iad_if.c **** 			memcpy(UserRxBufferFS1, &UserRxBufferFS1[*Len], bytesRemaining);
+ 370:Src/usbd_iad_if.c **** 
+ 371:Src/usbd_iad_if.c **** 		UserRxLenFS1 = bytesRemaining;
+ 372:Src/usbd_iad_if.c **** 		USBD_IAD_CDC1_SetRxBuffer(&hUsbDeviceFS, &UserRxBufferFS1[UserRxLenFS1]);
+ 373:Src/usbd_iad_if.c **** 		USBD_IAD_CDC1_ReceivePacket(&hUsbDeviceFS);
+ 374:Src/usbd_iad_if.c **** 	}
+ 375:Src/usbd_iad_if.c **** 	return USBD_OK;
+ 467              		.loc 1 375 2 is_stmt 1 view .LVU107
+ 376:Src/usbd_iad_if.c **** }
+ 468              		.loc 1 376 1 is_stmt 0 view .LVU108
+ 469 0014 0020     		movs	r0, #0
+ 470 0016 38BD     		pop	{r3, r4, r5, pc}
+ 471              	.LVL41:
+ 472              	.L42:
+ 473              	.LBB2:
+ 365:Src/usbd_iad_if.c **** 		memcpy(Buf, UserRxBufferFS1, *Len);
+ 474              		.loc 1 365 3 is_stmt 1 view .LVU109
+ 475 0018 0D49     		ldr	r1, .L44+4
+ 476              	.LVL42:
+ 365:Src/usbd_iad_if.c **** 		memcpy(Buf, UserRxBufferFS1, *Len);
+ 477              		.loc 1 365 3 is_stmt 0 view .LVU110
+ 478 001a FFF7FEFF 		bl	memcpy
+ 479              	.LVL43:
+ 367:Src/usbd_iad_if.c **** 		if (bytesRemaining != 0)
+ 480              		.loc 1 367 3 is_stmt 1 view .LVU111
+ 367:Src/usbd_iad_if.c **** 		if (bytesRemaining != 0)
+ 481              		.loc 1 367 42 is_stmt 0 view .LVU112
+ 482 001e 0B4B     		ldr	r3, .L44
+ 483 0020 1B68     		ldr	r3, [r3]
+ 367:Src/usbd_iad_if.c **** 		if (bytesRemaining != 0)
+ 484              		.loc 1 367 44 view .LVU113
+ 485 0022 2168     		ldr	r1, [r4]
+ 486              	.LVL44:
+ 368:Src/usbd_iad_if.c **** 			memcpy(UserRxBufferFS1, &UserRxBufferFS1[*Len], bytesRemaining);
+ 487              		.loc 1 368 3 is_stmt 1 view .LVU114
+ 368:Src/usbd_iad_if.c **** 			memcpy(UserRxBufferFS1, &UserRxBufferFS1[*Len], bytesRemaining);
+ 488              		.loc 1 368 6 is_stmt 0 view .LVU115
+ 489 0024 5C1A     		subs	r4, r3, r1
+ARM GAS  /tmp/ccJKIFMf.s 			page 17
+
+
+ 490              	.LVL45:
+ 368:Src/usbd_iad_if.c **** 			memcpy(UserRxBufferFS1, &UserRxBufferFS1[*Len], bytesRemaining);
+ 491              		.loc 1 368 6 view .LVU116
+ 492 0026 0BD1     		bne	.L43
+ 493              	.L40:
+ 371:Src/usbd_iad_if.c **** 		USBD_IAD_CDC1_SetRxBuffer(&hUsbDeviceFS, &UserRxBufferFS1[UserRxLenFS1]);
+ 494              		.loc 1 371 3 is_stmt 1 view .LVU117
+ 371:Src/usbd_iad_if.c **** 		USBD_IAD_CDC1_SetRxBuffer(&hUsbDeviceFS, &UserRxBufferFS1[UserRxLenFS1]);
+ 495              		.loc 1 371 16 is_stmt 0 view .LVU118
+ 496 0028 084B     		ldr	r3, .L44
+ 497 002a 1C60     		str	r4, [r3]
+ 372:Src/usbd_iad_if.c **** 		USBD_IAD_CDC1_ReceivePacket(&hUsbDeviceFS);
+ 498              		.loc 1 372 3 is_stmt 1 view .LVU119
+ 499 002c 094D     		ldr	r5, .L44+8
+ 500 002e 0849     		ldr	r1, .L44+4
+ 501 0030 2144     		add	r1, r1, r4
+ 502 0032 2846     		mov	r0, r5
+ 503 0034 FFF7FEFF 		bl	USBD_IAD_CDC1_SetRxBuffer
+ 504              	.LVL46:
+ 373:Src/usbd_iad_if.c **** 	}
+ 505              		.loc 1 373 3 view .LVU120
+ 506 0038 2846     		mov	r0, r5
+ 507 003a FFF7FEFF 		bl	USBD_IAD_CDC1_ReceivePacket
+ 508              	.LVL47:
+ 509 003e E9E7     		b	.L39
+ 510              	.L43:
+ 369:Src/usbd_iad_if.c **** 
+ 511              		.loc 1 369 4 view .LVU121
+ 369:Src/usbd_iad_if.c **** 
+ 512              		.loc 1 369 28 is_stmt 0 view .LVU122
+ 513 0040 0348     		ldr	r0, .L44+4
+ 369:Src/usbd_iad_if.c **** 
+ 514              		.loc 1 369 4 view .LVU123
+ 515 0042 2246     		mov	r2, r4
+ 516 0044 0144     		add	r1, r1, r0
+ 517 0046 FFF7FEFF 		bl	memcpy
+ 518              	.LVL48:
+ 519 004a EDE7     		b	.L40
+ 520              	.L45:
+ 521              		.align	2
+ 522              	.L44:
+ 523 004c 00000000 		.word	UserRxLenFS1
+ 524 0050 00000000 		.word	UserRxBufferFS1
+ 525 0054 00000000 		.word	hUsbDeviceFS
+ 526              	.LBE2:
+ 527              		.cfi_endproc
+ 528              	.LFE152:
+ 530              		.section	.text.CDC_Receive_VCP2_FS,"ax",%progbits
+ 531              		.align	1
+ 532              		.global	CDC_Receive_VCP2_FS
+ 533              		.syntax unified
+ 534              		.thumb
+ 535              		.thumb_func
+ 536              		.fpu fpv5-d16
+ 538              	CDC_Receive_VCP2_FS:
+ 539              	.LVL49:
+ 540              	.LFB153:
+ARM GAS  /tmp/ccJKIFMf.s 			page 18
+
+
+ 377:Src/usbd_iad_if.c **** 
+ 378:Src/usbd_iad_if.c **** int8_t CDC_Receive_VCP2_FS(uint8_t* Buf, uint32_t *Len) {
+ 541              		.loc 1 378 57 is_stmt 1 view -0
+ 542              		.cfi_startproc
+ 543              		@ args = 0, pretend = 0, frame = 0
+ 544              		@ frame_needed = 0, uses_anonymous_args = 0
+ 545              		.loc 1 378 57 is_stmt 0 view .LVU125
+ 546 0000 38B5     		push	{r3, r4, r5, lr}
+ 547              	.LCFI6:
+ 548              		.cfi_def_cfa_offset 16
+ 549              		.cfi_offset 3, -16
+ 550              		.cfi_offset 4, -12
+ 551              		.cfi_offset 5, -8
+ 552              		.cfi_offset 14, -4
+ 553 0002 0C46     		mov	r4, r1
+ 379:Src/usbd_iad_if.c **** 	if (*Len > UserRxLenFS2)
+ 554              		.loc 1 379 2 is_stmt 1 view .LVU126
+ 555              		.loc 1 379 6 is_stmt 0 view .LVU127
+ 556 0004 0A68     		ldr	r2, [r1]
+ 557              		.loc 1 379 11 view .LVU128
+ 558 0006 114B     		ldr	r3, .L53
+ 559 0008 1B68     		ldr	r3, [r3]
+ 560              		.loc 1 379 5 view .LVU129
+ 561 000a 9A42     		cmp	r2, r3
+ 562 000c 00D9     		bls	.L47
+ 380:Src/usbd_iad_if.c **** 		*Len = UserRxLenFS2;
+ 563              		.loc 1 380 3 is_stmt 1 view .LVU130
+ 564              		.loc 1 380 8 is_stmt 0 view .LVU131
+ 565 000e 0B60     		str	r3, [r1]
+ 566              	.L47:
+ 381:Src/usbd_iad_if.c **** 	if (*Len > 0) {
+ 567              		.loc 1 381 2 is_stmt 1 view .LVU132
+ 568              		.loc 1 381 6 is_stmt 0 view .LVU133
+ 569 0010 2268     		ldr	r2, [r4]
+ 570              		.loc 1 381 5 view .LVU134
+ 571 0012 0AB9     		cbnz	r2, .L51
+ 572              	.LVL50:
+ 573              	.L48:
+ 382:Src/usbd_iad_if.c **** 		memcpy(Buf, UserRxBufferFS2, *Len);
+ 383:Src/usbd_iad_if.c **** 
+ 384:Src/usbd_iad_if.c **** 		uint32_t bytesRemaining = UserRxLenFS2 - *Len;
+ 385:Src/usbd_iad_if.c **** 		if (bytesRemaining != 0)
+ 386:Src/usbd_iad_if.c **** 			memcpy(UserRxBufferFS2, &UserRxBufferFS2[*Len], bytesRemaining);
+ 387:Src/usbd_iad_if.c **** 
+ 388:Src/usbd_iad_if.c **** 		UserRxLenFS2 = bytesRemaining;
+ 389:Src/usbd_iad_if.c **** 		USBD_IAD_CDC2_SetRxBuffer(&hUsbDeviceFS, &UserRxBufferFS2[UserRxLenFS2]);
+ 390:Src/usbd_iad_if.c **** 		USBD_IAD_CDC2_ReceivePacket(&hUsbDeviceFS);
+ 391:Src/usbd_iad_if.c **** 	}
+ 392:Src/usbd_iad_if.c **** 	return USBD_OK;
+ 574              		.loc 1 392 2 is_stmt 1 view .LVU135
+ 393:Src/usbd_iad_if.c **** }
+ 575              		.loc 1 393 1 is_stmt 0 view .LVU136
+ 576 0014 0020     		movs	r0, #0
+ 577 0016 38BD     		pop	{r3, r4, r5, pc}
+ 578              	.LVL51:
+ 579              	.L51:
+ 580              	.LBB3:
+ARM GAS  /tmp/ccJKIFMf.s 			page 19
+
+
+ 382:Src/usbd_iad_if.c **** 		memcpy(Buf, UserRxBufferFS2, *Len);
+ 581              		.loc 1 382 3 is_stmt 1 view .LVU137
+ 582 0018 0D49     		ldr	r1, .L53+4
+ 583              	.LVL52:
+ 382:Src/usbd_iad_if.c **** 		memcpy(Buf, UserRxBufferFS2, *Len);
+ 584              		.loc 1 382 3 is_stmt 0 view .LVU138
+ 585 001a FFF7FEFF 		bl	memcpy
+ 586              	.LVL53:
+ 384:Src/usbd_iad_if.c **** 		if (bytesRemaining != 0)
+ 587              		.loc 1 384 3 is_stmt 1 view .LVU139
+ 384:Src/usbd_iad_if.c **** 		if (bytesRemaining != 0)
+ 588              		.loc 1 384 42 is_stmt 0 view .LVU140
+ 589 001e 0B4B     		ldr	r3, .L53
+ 590 0020 1B68     		ldr	r3, [r3]
+ 384:Src/usbd_iad_if.c **** 		if (bytesRemaining != 0)
+ 591              		.loc 1 384 44 view .LVU141
+ 592 0022 2168     		ldr	r1, [r4]
+ 593              	.LVL54:
+ 385:Src/usbd_iad_if.c **** 			memcpy(UserRxBufferFS2, &UserRxBufferFS2[*Len], bytesRemaining);
+ 594              		.loc 1 385 3 is_stmt 1 view .LVU142
+ 385:Src/usbd_iad_if.c **** 			memcpy(UserRxBufferFS2, &UserRxBufferFS2[*Len], bytesRemaining);
+ 595              		.loc 1 385 6 is_stmt 0 view .LVU143
+ 596 0024 5C1A     		subs	r4, r3, r1
+ 597              	.LVL55:
+ 385:Src/usbd_iad_if.c **** 			memcpy(UserRxBufferFS2, &UserRxBufferFS2[*Len], bytesRemaining);
+ 598              		.loc 1 385 6 view .LVU144
+ 599 0026 0BD1     		bne	.L52
+ 600              	.L49:
+ 388:Src/usbd_iad_if.c **** 		USBD_IAD_CDC2_SetRxBuffer(&hUsbDeviceFS, &UserRxBufferFS2[UserRxLenFS2]);
+ 601              		.loc 1 388 3 is_stmt 1 view .LVU145
+ 388:Src/usbd_iad_if.c **** 		USBD_IAD_CDC2_SetRxBuffer(&hUsbDeviceFS, &UserRxBufferFS2[UserRxLenFS2]);
+ 602              		.loc 1 388 16 is_stmt 0 view .LVU146
+ 603 0028 084B     		ldr	r3, .L53
+ 604 002a 1C60     		str	r4, [r3]
+ 389:Src/usbd_iad_if.c **** 		USBD_IAD_CDC2_ReceivePacket(&hUsbDeviceFS);
+ 605              		.loc 1 389 3 is_stmt 1 view .LVU147
+ 606 002c 094D     		ldr	r5, .L53+8
+ 607 002e 0849     		ldr	r1, .L53+4
+ 608 0030 2144     		add	r1, r1, r4
+ 609 0032 2846     		mov	r0, r5
+ 610 0034 FFF7FEFF 		bl	USBD_IAD_CDC2_SetRxBuffer
+ 611              	.LVL56:
+ 390:Src/usbd_iad_if.c **** 	}
+ 612              		.loc 1 390 3 view .LVU148
+ 613 0038 2846     		mov	r0, r5
+ 614 003a FFF7FEFF 		bl	USBD_IAD_CDC2_ReceivePacket
+ 615              	.LVL57:
+ 616 003e E9E7     		b	.L48
+ 617              	.L52:
+ 386:Src/usbd_iad_if.c **** 
+ 618              		.loc 1 386 4 view .LVU149
+ 386:Src/usbd_iad_if.c **** 
+ 619              		.loc 1 386 28 is_stmt 0 view .LVU150
+ 620 0040 0348     		ldr	r0, .L53+4
+ 386:Src/usbd_iad_if.c **** 
+ 621              		.loc 1 386 4 view .LVU151
+ 622 0042 2246     		mov	r2, r4
+ARM GAS  /tmp/ccJKIFMf.s 			page 20
+
+
+ 623 0044 0144     		add	r1, r1, r0
+ 624 0046 FFF7FEFF 		bl	memcpy
+ 625              	.LVL58:
+ 626 004a EDE7     		b	.L49
+ 627              	.L54:
+ 628              		.align	2
+ 629              	.L53:
+ 630 004c 00000000 		.word	UserRxLenFS2
+ 631 0050 00000000 		.word	UserRxBufferFS2
+ 632 0054 00000000 		.word	hUsbDeviceFS
+ 633              	.LBE3:
+ 634              		.cfi_endproc
+ 635              	.LFE153:
+ 637              		.global	USBD_IAD_Interface_fops_FS
+ 638              		.comm	UserRxLenFS2,4,4
+ 639              		.comm	UserRxLenFS1,4,4
+ 640              		.comm	UserTxBufferFS2,2048,4
+ 641              		.comm	UserTxBufferFS1,2048,4
+ 642              		.comm	UserRxBufferFS2,2048,4
+ 643              		.comm	UserRxBufferFS1,2048,4
+ 644              		.section	.data.USBD_IAD_Interface_fops_FS,"aw"
+ 645              		.align	2
+ 648              	USBD_IAD_Interface_fops_FS:
+ 649 0000 00000000 		.word	IAD_Init_FS
+ 650 0004 00000000 		.word	IAD_DeInit_FS
+ 651 0008 00000000 		.word	IAD_Control_FS
+ 652 000c 00000000 		.word	IAD_Receive_CDC1_FS
+ 653 0010 00000000 		.word	IAD_Receive_CDC2_FS
+ 654              		.text
+ 655              	.Letext0:
+ 656              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 657              		.file 3 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h"
+ 658              		.file 4 "/usr/include/newlib/sys/_types.h"
+ 659              		.file 5 "/usr/include/newlib/sys/reent.h"
+ 660              		.file 6 "/usr/include/newlib/sys/lock.h"
+ 661              		.file 7 "/usr/include/newlib/sys/_stdint.h"
+ 662              		.file 8 "/usr/include/newlib/stdlib.h"
+ 663              		.file 9 "Drivers/CMSIS/Include/core_cm7.h"
+ 664              		.file 10 "Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h"
+ 665              		.file 11 "Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h"
+ 666              		.file 12 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
+ 667              		.file 13 "Inc/usbd_iad.h"
+ 668              		.file 14 "Inc/usbd_iad_if.h"
+ 669              		.file 15 "<built-in>"
+ARM GAS  /tmp/ccJKIFMf.s 			page 21
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 usbd_iad_if.c
+     /tmp/ccJKIFMf.s:17     .text.IAD_DeInit_FS:0000000000000000 $t
+     /tmp/ccJKIFMf.s:24     .text.IAD_DeInit_FS:0000000000000000 IAD_DeInit_FS
+     /tmp/ccJKIFMf.s:40     .text.IAD_Control_FS:0000000000000000 $t
+     /tmp/ccJKIFMf.s:46     .text.IAD_Control_FS:0000000000000000 IAD_Control_FS
+     /tmp/ccJKIFMf.s:97     .text.IAD_Receive_CDC2_FS:0000000000000000 $t
+     /tmp/ccJKIFMf.s:103    .text.IAD_Receive_CDC2_FS:0000000000000000 IAD_Receive_CDC2_FS
+     /tmp/ccJKIFMf.s:152    .text.IAD_Receive_CDC2_FS:0000000000000024 $d
+                            *COM*:0000000000000004 UserRxLenFS2
+     /tmp/ccJKIFMf.s:158    .text.IAD_Receive_CDC1_FS:0000000000000000 $t
+     /tmp/ccJKIFMf.s:164    .text.IAD_Receive_CDC1_FS:0000000000000000 IAD_Receive_CDC1_FS
+     /tmp/ccJKIFMf.s:213    .text.IAD_Receive_CDC1_FS:0000000000000024 $d
+                            *COM*:0000000000000004 UserRxLenFS1
+     /tmp/ccJKIFMf.s:219    .text.IAD_Init_FS:0000000000000000 $t
+     /tmp/ccJKIFMf.s:225    .text.IAD_Init_FS:0000000000000000 IAD_Init_FS
+     /tmp/ccJKIFMf.s:277    .text.IAD_Init_FS:0000000000000038 $d
+                            *COM*:0000000000000800 UserTxBufferFS1
+                            *COM*:0000000000000800 UserRxBufferFS1
+                            *COM*:0000000000000800 UserTxBufferFS2
+                            *COM*:0000000000000800 UserRxBufferFS2
+     /tmp/ccJKIFMf.s:288    .text.IAD_CDC1_Transmit_FS:0000000000000000 $t
+     /tmp/ccJKIFMf.s:295    .text.IAD_CDC1_Transmit_FS:0000000000000000 IAD_CDC1_Transmit_FS
+     /tmp/ccJKIFMf.s:351    .text.IAD_CDC1_Transmit_FS:0000000000000024 $d
+     /tmp/ccJKIFMf.s:356    .text.IAD_CDC2_Transmit_FS:0000000000000000 $t
+     /tmp/ccJKIFMf.s:363    .text.IAD_CDC2_Transmit_FS:0000000000000000 IAD_CDC2_Transmit_FS
+     /tmp/ccJKIFMf.s:419    .text.IAD_CDC2_Transmit_FS:0000000000000024 $d
+     /tmp/ccJKIFMf.s:424    .text.CDC_Receive_VCP1_FS:0000000000000000 $t
+     /tmp/ccJKIFMf.s:431    .text.CDC_Receive_VCP1_FS:0000000000000000 CDC_Receive_VCP1_FS
+     /tmp/ccJKIFMf.s:523    .text.CDC_Receive_VCP1_FS:000000000000004c $d
+     /tmp/ccJKIFMf.s:531    .text.CDC_Receive_VCP2_FS:0000000000000000 $t
+     /tmp/ccJKIFMf.s:538    .text.CDC_Receive_VCP2_FS:0000000000000000 CDC_Receive_VCP2_FS
+     /tmp/ccJKIFMf.s:630    .text.CDC_Receive_VCP2_FS:000000000000004c $d
+     /tmp/ccJKIFMf.s:648    .data.USBD_IAD_Interface_fops_FS:0000000000000000 USBD_IAD_Interface_fops_FS
+     /tmp/ccJKIFMf.s:645    .data.USBD_IAD_Interface_fops_FS:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+USBD_IAD_CDC2_SetRxBuffer
+USBD_IAD_CDC2_ReceivePacket
+hUsbDeviceFS
+USBD_IAD_CDC1_SetRxBuffer
+USBD_IAD_CDC1_ReceivePacket
+USBD_IAD_CDC1_SetTxBuffer
+USBD_IAD_CDC2_SetTxBuffer
+USBD_IAD_CDC1_TransmitPacket
+USBD_IAD_CDC2_TransmitPacket
+memcpy

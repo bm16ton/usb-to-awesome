@@ -20,7 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "usb_device.h"
-
+#include "usbd_iad_if.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -63,6 +63,9 @@ static void MX_GPIO_Init(void);
   * @brief  The application entry point.
   * @retval int
   */
+char ch;
+char string_array[30];
+
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -88,14 +91,50 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USB_DEVICE_Init();
+//  MX_USB_Start(MX_USB);
+//  USBD_IAD_CDC_Init(USB_FS);
+//  USBD_IAD_Start(USB_FS);
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
+	uint8_t msg1[16], msg2[16];
+	uint32_t totalLen;
+	uint8_t result;
+
+	while (1) {
+		/* USER CODE END WHILE */
+
+		totalLen = 16;
+		msg1[0] = '.';
+		result = CDC_Receive_VCP1_FS(msg1, &totalLen);
+		if (result == USBD_OK && totalLen != 0)
+			IAD_CDC2_Transmit_FS(msg1, totalLen);
+//            MX_USART_Putc(USART3, msg1);
+		HAL_Delay(100);
+
+		totalLen = 16;
+		msg2[0] = '.';
+		result = CDC_Receive_VCP1_FS(msg2, &totalLen);
+		if (result == USBD_OK && totalLen != 0)
+			IAD_CDC1_Transmit_FS(msg2, totalLen);
+
+		HAL_Delay(100);
+/*
+			while (CDC_Receive_VCP1_FS(USB_FS, &ch)) {
+				/* One character received */
+
+				/* Send character to USART */
+//				HAL_UART_Transmit(USART3, ch);
+//			}
+
+			/* CHeck if any character received from USART */
+//			while (!USART_BufferEmpty(USART3)) {
+				/* Send data over USB CDC */
+//				IAD_CDC1_Transmit_FS(hUsbDeviceFS, MX_USART_Getc(USART3));
+//		}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

@@ -110,18 +110,19 @@ int main(void)
 		totalLen = 16;
 		msg1[0] = '.';
 		result = CDC_Receive_VCP1_FS(msg1, &totalLen);
-		if (result == USBD_OK && totalLen != 0)
+		if (result == USBD_OK && totalLen != 0) {
 			IAD_CDC2_Transmit_FS(msg1, totalLen);
 //            MX_USART_Putc(USART3, msg1);
 		HAL_Delay(100);
-
+}
 		totalLen = 16;
 		msg2[0] = '.';
-		result = CDC_Receive_VCP1_FS(msg2, &totalLen);
-		if (result == USBD_OK && totalLen != 0)
+		result = CDC_Receive_VCP2_FS(msg2, &totalLen);
+		if (result == USBD_OK && totalLen != 0) {
 			IAD_CDC1_Transmit_FS(msg2, totalLen);
 
 		HAL_Delay(100);
+}
 /*
 			while (CDC_Receive_VCP1_FS(USB_FS, &ch)) {
 				/* One character received */
@@ -138,7 +139,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+    }
   /* USER CODE END 3 */
 }
 

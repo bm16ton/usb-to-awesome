@@ -94,7 +94,7 @@ typedef struct {
 } USBD_IAD_CDC_HandleTypeDef;
 
 typedef struct {
-	uint32_t data[IAD_DATA_HS_MAX_PACKET_SIZE / 4]; /* Force 32bits alignment */
+	uint32_t data[IAD_DATA_FS_MAX_PACKET_SIZE / 4]; /* Force 32bits alignment */
 	uint8_t CmdOpCode;
 	uint8_t CmdLength;
 	USBD_IAD_CDC_HandleTypeDef cdc1;

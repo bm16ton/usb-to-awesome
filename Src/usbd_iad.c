@@ -53,7 +53,7 @@ static uint8_t USBD_IAD_EP0_RxReady(USBD_HandleTypeDef *pdev);
 
 static uint8_t *USBD_IAD_GetFSCfgDesc(uint16_t *length);
 
-static uint8_t *USBD_IAD_GetHSCfgDesc(uint16_t *length);
+static uint8_t *USBD_IAD_GetFSCfgDesc(uint16_t *length);
 
 static uint8_t *USBD_IAD_GetOtherSpeedCfgDesc(uint16_t *length);
 
@@ -88,13 +88,13 @@ USBD_ClassTypeDef USBD_IAD = {
 	NULL,
 	NULL,
 	NULL,
-	USBD_IAD_GetHSCfgDesc,
+	USBD_IAD_GetFSCfgDesc,
 	USBD_IAD_GetFSCfgDesc,
 	USBD_IAD_GetOtherSpeedCfgDesc,
 	USBD_IAD_GetDeviceQualifierDescriptor,
 };
 
-__ALIGN_BEGIN uint8_t USBD_IAD_CfgHSDesc[USB_IAD_CONFIG_DESC_SIZ] __ALIGN_END =
+__ALIGN_BEGIN uint8_t USBD_IAD_CfgFSDesc[USB_IAD_CONFIG_DESC_SIZ] __ALIGN_END =
 {
 	//Configuation Descriptor
 	0x09,								// 00 bLength: Configuation Descriptor size
@@ -182,8 +182,8 @@ __ALIGN_BEGIN uint8_t USBD_IAD_CfgHSDesc[USB_IAD_CONFIG_DESC_SIZ] __ALIGN_END =
 	USB_DESC_TYPE_ENDPOINT,				// 62 bDescriptorType: Endpoint
 	IAD_CDC1_OUT_EP,					// 63 bEndpointAddress: (OUT1)
 	0x02,								// 64 bmAttributes: Bulk
-	LOBYTE(IAD_DATA_HS_MAX_PACKET_SIZE),// 65 wMaxPacketSize:
-	HIBYTE(IAD_DATA_HS_MAX_PACKET_SIZE),// 66
+	LOBYTE(IAD_DATA_FS_MAX_PACKET_SIZE),// 65 wMaxPacketSize:
+	HIBYTE(IAD_DATA_FS_MAX_PACKET_SIZE),// 66
 	0x00,								// 67 bInterval: ignore for Bulk transfer
 
 	//Endpoint CDC1 IN Descriptor
@@ -191,8 +191,8 @@ __ALIGN_BEGIN uint8_t USBD_IAD_CfgHSDesc[USB_IAD_CONFIG_DESC_SIZ] __ALIGN_END =
 	USB_DESC_TYPE_ENDPOINT,				// 69 bDescriptorType: Endpoint
 	IAD_CDC1_IN_EP,						// 70 bEndpointAddress: (IN1)
 	0x02,								// 71 bmAttributes: Bulk
-	LOBYTE(IAD_DATA_HS_MAX_PACKET_SIZE),// 72 wMaxPacketSize:
-	HIBYTE(IAD_DATA_HS_MAX_PACKET_SIZE),// 73
+	LOBYTE(IAD_DATA_FS_MAX_PACKET_SIZE),// 72 wMaxPacketSize:
+	HIBYTE(IAD_DATA_FS_MAX_PACKET_SIZE),// 73
 	0x00,								// 74 bInterval
 
 	// IAD 2 -> CDC2
@@ -270,8 +270,8 @@ __ALIGN_BEGIN uint8_t USBD_IAD_CfgHSDesc[USB_IAD_CONFIG_DESC_SIZ] __ALIGN_END =
 	USB_DESC_TYPE_ENDPOINT,				// 128 bDescriptorType: Endpoint
 	IAD_CDC2_OUT_EP,					// 129 bEndpointAddress: (OUT3)
 	0x02,								// 130 bmAttributes: Bulk
-	LOBYTE(IAD_DATA_HS_MAX_PACKET_SIZE),// 131 wMaxPacketSize:
-	HIBYTE(IAD_DATA_HS_MAX_PACKET_SIZE),// 132
+	LOBYTE(IAD_DATA_FS_MAX_PACKET_SIZE),// 131 wMaxPacketSize:
+	HIBYTE(IAD_DATA_FS_MAX_PACKET_SIZE),// 132
 	0x00,								// 133 bInterval: ignore for Bulk transfer
 
 	//Endpoint CDC2 IN Descriptor
@@ -279,8 +279,8 @@ __ALIGN_BEGIN uint8_t USBD_IAD_CfgHSDesc[USB_IAD_CONFIG_DESC_SIZ] __ALIGN_END =
 	USB_DESC_TYPE_ENDPOINT,				// 135 bDescriptorType: Endpoint
 	IAD_CDC2_IN_EP,						// 136 bEndpointAddress: (IN3)
 	0x02,								// 137 bmAttributes: Bulk
-	LOBYTE(IAD_DATA_HS_MAX_PACKET_SIZE),// 138 wMaxPacketSize:
-	HIBYTE(IAD_DATA_HS_MAX_PACKET_SIZE),// 139
+	LOBYTE(IAD_DATA_FS_MAX_PACKET_SIZE),// 138 wMaxPacketSize:
+	HIBYTE(IAD_DATA_FS_MAX_PACKET_SIZE),// 139
 	0x00,								// 140 bInterval
 };
 
@@ -304,7 +304,7 @@ static uint8_t USBD_IAD_Init(USBD_HandleTypeDef *pdev, uint8_t cfgidx) {
 	USBD_IAD_HandleTypeDef *hiad;
 
 	uint16_t size = pdev->dev_speed == USBD_SPEED_HIGH ?
-		IAD_DATA_HS_IN_PACKET_SIZE : IAD_DATA_FS_IN_PACKET_SIZE;
+		IAD_DATA_FS_IN_PACKET_SIZE : IAD_DATA_FS_IN_PACKET_SIZE;
 
 	/* CDC1 */
 	/* Open EP IN */
@@ -543,8 +543,8 @@ static uint8_t USBD_IAD_EP0_RxReady(USBD_HandleTypeDef *pdev) {
  * @retval pointer to descriptor buffer
  */
 static uint8_t *USBD_IAD_GetFSCfgDesc(uint16_t *length) {
-	*length = sizeof(USBD_IAD_CfgHSDesc);
-	return USBD_IAD_CfgHSDesc;
+	*length = sizeof(USBD_IAD_CfgFSDesc);
+	return USBD_IAD_CfgFSDesc;
 }
 
 /**
@@ -553,12 +553,12 @@ static uint8_t *USBD_IAD_GetFSCfgDesc(uint16_t *length) {
  * @param  speed : current device speed
  * @param  length : pointer data length
  * @retval pointer to descriptor buffer
- */
+
 static uint8_t *USBD_IAD_GetHSCfgDesc(uint16_t *length) {
 	*length = sizeof(USBD_IAD_CfgHSDesc);
 	return USBD_IAD_CfgHSDesc;
 }
-
+*/
 /**
  * @brief  USBD_IAD_GetCfgDesc
  *         Return configuration descriptor
@@ -567,8 +567,8 @@ static uint8_t *USBD_IAD_GetHSCfgDesc(uint16_t *length) {
  * @retval pointer to descriptor buffer
  */
 static uint8_t *USBD_IAD_GetOtherSpeedCfgDesc(uint16_t *length) {
-	*length = sizeof(USBD_IAD_CfgHSDesc);
-	return USBD_IAD_CfgHSDesc;
+	*length = sizeof(USBD_IAD_CfgFSDesc);
+	return USBD_IAD_CfgFSDesc;
 }
 
 /**

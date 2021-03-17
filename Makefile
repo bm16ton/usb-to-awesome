@@ -34,17 +34,15 @@ BUILD_DIR = build
 ######################################
 # source
 ######################################
-##Src/usb/usbd.c \
 # C sources
 C_SOURCES =  \
 Src/main.c \
+Src/usb_device.c \
 Src/usbd_conf.c \
 Src/usbd_desc.c \
-Src/usb/hid/usbd_hid.c \
-Src/usb/hid/usbd_hid_if.c \
+Src/usbd_iad.c \
+Src/usbd_iad_if.c \
 Src/stm32f7xx_it.c \
-Src/usb/i2c.c \
-Src/usb/usbd.c \
 Src/stm32f7xx_hal_msp.c \
 Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd.c \
 Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd_ex.c \
@@ -68,7 +66,8 @@ Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim_ex.c \
 Src/system_stm32f7xx.c \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c \
-Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c
+Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c \
+Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c
 
 # ASM sources
 ASM_SOURCES =  \

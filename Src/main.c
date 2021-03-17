@@ -19,8 +19,12 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "string.h"
+#include "stm32f7xx_hal.h"
 #include "usb_device.h"
 #include "usbd_iad_if.h"
+#include "stm32f7xx_hal_usart.h"
+#include "stm32f7xx_hal_usart_ex.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -50,6 +54,65 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+
+uint8_t byte;
+
+USART_HandleTypeDef husart6;
+
+/* UART2 Interrupt Service Routine */
+void USART_IRQHandler(void)
+{
+  HAL_USART_IRQHandler(&husart6);
+}
+
+/* This callback is called by the HAL_UART_IRQHandler when the given number of bytes are received */
+void HAL_USART_RxCpltCallback(USART_HandleTypeDef *hsuart6)
+{
+  if (hsuart6->Instance == USART6)
+  {
+    /* Transmit one byte with 100 ms timeout */
+    HAL_USART_Transmit(&husart6, &byte, 1, 100);
+
+    /* Receive one byte in interrupt mode */
+    HAL_USART_Receive_IT(&husart6, &byte, 1);
+  }
+}
+
+void uart_gpio_init()
+{
+  GPIO_InitTypeDef GPIO_InitStruct;
+
+  __GPIOA_CLK_ENABLE();
+
+  /**USART2 GPIO Configuration
+  PA9     ------> USART2_TX
+  PA10     ------> USART2_RX
+  */
+  GPIO_InitStruct.Pin = GPIO_PIN_9 | GPIO_PIN_10;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF7_USART2;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+}
+
+void uart_init()
+{
+  __USART6_CLK_ENABLE();
+
+husart6.Instance = USART6;
+husart6.Init.BaudRate = 115200;
+husart6.Init.WordLength = USART_WORDLENGTH_8B;
+husart6.Init.StopBits = USART_STOPBITS_1;
+husart6.Init.Parity = USART_PARITY_NONE;
+husart6.Init.Mode = USART_MODE_TX_RX;
+//husart6.Init.HwFlowCtl = USART_HWCONTROL_NONE;
+//husart6.Init.OverSampling = USART_OVERSAMPLING_16;
+//huart6.Init.OneBitSampling = USART_ONEBIT_SAMPLING_DISABLED ;
+//huart6.AdvancedInit.AdvFeatureInit = USART_ADVFEATURE_NO_INIT;
+//HAL_USART_Init(&husart6);
+}
+/*
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -63,8 +126,7 @@ static void MX_GPIO_Init(void);
   * @brief  The application entry point.
   * @retval int
   */
-char ch;
-char string_array[30];
+
 
 int main(void)
 {
@@ -100,9 +162,15 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+    uint8_t ch;
+//    char string_array[30];
 	uint8_t msg1[16], msg2[16];
 	uint32_t totalLen;
 	uint8_t result;
+
+  HAL_Init();
+  uart_gpio_init();
+  uart_init();
 
 	while (1) {
 		/* USER CODE END WHILE */
@@ -110,7 +178,9 @@ int main(void)
 		totalLen = 16;
 		msg1[0] = '.';
 		result = CDC_Receive_VCP1_FS(msg1, &totalLen);
+
 		if (result == USBD_OK && totalLen != 0) {
+		    ch = result;
 			IAD_CDC2_Transmit_FS(msg1, totalLen);
 //            MX_USART_Putc(USART3, msg1);
 		HAL_Delay(100);
@@ -123,12 +193,11 @@ int main(void)
 
 		HAL_Delay(100);
 }
-/*
-			while (CDC_Receive_VCP1_FS(USB_FS, &ch)) {
-				/* One character received */
 
+//			if (ch != 0) {
 				/* Send character to USART */
-//				HAL_UART_Transmit(USART3, ch);
+				//uint8_t buffer[4];
+//                HAL_USART_Transmit(&husart6, &ch, 1, 100);
 //			}
 
 			/* CHeck if any character received from USART */

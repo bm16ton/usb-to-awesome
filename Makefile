@@ -63,6 +63,7 @@ Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c \
 Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_exti.c \
 Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim.c \
 Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim_ex.c \
+Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_usart.c \
 Src/system_stm32f7xx.c \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c \
